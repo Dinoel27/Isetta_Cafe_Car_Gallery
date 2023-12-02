@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>I Wandered Lonely as a Cloud</title>
+
+    <script src="https://cdn.jsdelivr.net/gh/volumetrics-io/mrjs@latest/dist/mr.js"></script>
+    <style>
+        @font-face {
+            font-family: 'Hepta Slab';
+            src: url('./fonts/HeptaSlab-Regular.ttf') format('truetype');
+            font-weight: 400;
+        }
+
+        * {
+            padding: 0;
+            margin: 0;
+            border: none;
+            border-collapse: collapse;
+        }
+
+        html {
+            overflow: hidden;
+            overscroll-behavior: none;
+        }
+
+        body {
+            position: fixed;
+        }
+
+        mr-surface {
+            height: 100vh;
+            width: 100vw;
+        }
+
+        mr-app * {
+            display: block;
+        }
+
+        /* mr-column {
+            display: block;
+            height: 100%;
+        } */
+
+        /* mr-row {
+            display: block;
+            width: 100%;
+        } */
+
+        /* mr-img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+        } */
+
+        .img-daffodils,
+        .img-heart {
+            width: 100%;
+            object-fit: cover;
+        }
+
+        .img-daffodils {
+            height: 300px;
+        }
+
+        .img-heart {
+            height: 400px;
+        }
+
+
+        .mainContainer {
+            background-color: white;
+            /* opacity: 1; */
+            border-radius: 20px;
+            height: 500px;
+            width: 80vw;
+        }
+
+        .mainColumn {
+            padding-left: 30px;
+            padding-right: 30px;
+        }
+
+        .title {
+            font-size: 48px;
+            line-height: 110%;
+            color: #333333;
+            font-family: "Hepta Slab";
+            font-weight: 400;
+            text-align: center;
+            margin-top: 60px;
+        }
+
+        .author {
+            font-size: 18px;
+            line-height: 100%;
+            color: #333333;
+            font-family: sans-serif;
+            font-weight: 400;
+            text-align: center;
+            margin-top: 30px;
+        }
+
+        .paragraph {
+            color: #333333;
+            font-size: 24px;
+            line-height: 200%;
+            font-family: "Hepta Slab";
+            font-weight: 400;
+            /* width: 100%; */
+            margin-top: 40px;
+            margin-bottom: 40px;
+            /* margin-bottom: 20px; */
+            text-align: center;
+        }
+
+        .paragraph-end {
+            height: 200px;
+        }
+
+        .toolbar {
+            background-color: hotpink;
+            border-radius: 1%;
+            height: 80px;
+            width: 150px;
+        }
+
+        .button {
+            text-align: left;
+        }
+
+        .daffodil-row {
+            display: block;
+            /* background-color: rgb(255, 180, 115); */
+            height: 200px;
+            margin-top: 100px;
+            margin-bottom: 100px;
+        }
+
+        .daffodil2 {
+            scale: 0.5;
+            z-index: 30;
+            height: 200px;
+        }
+
+        .daffodil3 {
+            scale: 0.5;
+            z-index: 30;
+            height: 200px;
+        }
+
+        /* Old */
+        .daffodil {
+            scale: 0.01;
+            z-index: 0;
+            height: 100px;
+        }
+
+        .logo {
+            scale: 0.001;
+            z-index: 10;
+            height: 100px;
+        }
+
+        .star {
+            scale: 0.012;
+            z-index: 0;
+            height: 60px;
+        }
+
+        #debug {
+            font-size: 36px;
+            color: red;
+        }
+
+        #background {
+            position: absolute;
+            inset: 0;
+            width: 100vw;
+            height: 100vh;
+            background-color: black;
+            z-index: -1;
+            display: block;
+            object-fit: cover;
+            object-position: center;
+        }
+    </style>
+
+</head>
+
+<body>
+    <video id="background" src="/images/coffee_shop.mp4" playsinline="" autoplay="" muted="" loop=""></video>
+    <mr-app debug="false" camera="camera: perspective">
+        <mr-surface fixed="true">
+            <mr-container class="mainContainer">
+                <mr-column class="mainColumn">
+                    <mr-text class="title">I Wandered
+                        Lonely as a Cloud</mr-text>
+                    <mr-text class="author">by William Wordsworth</mr-text>
+                    <mr-text class="paragraph">
+                        I wandered lonely as a cloud
+                        That floats on high o'er vales and hills,
+                        When all at once I saw a crowd,
+                        A host, of golden daffodils;
+                    </mr-text>
+
+                    <mr-img class="img-daffodils" src="./images/daffodils.jpg"></mr-img>
+
+                    <mr-text class="paragraph">
+                        Beside the lake, beneath the trees,
+                        Fluttering and dancing in the breeze.
+                        Continuous as the stars that shine
+                        And twinkle on the milky way,
+                    </mr-text>
+
+                    <mr-entity data-position="0 0 0.05" data-rotation="0 0 0"
+                        data-comp-animation="type: rotate-y; maxspeed: -0.02; acceleration: -0.00008;">
+                        <mr-model class="star" src="./assets/star.glb"></mr-model>
+                    </mr-entity>
+
+                    <mr-text class="paragraph">
+                        They stretched in never-ending line
+                        Along the margin of a bay:
+                        Ten thousand saw I at a glance,
+                        Tossing their heads in sprightly dance.
+                    </mr-text>
+
+                    <mr-text class="paragraph">
+                        The waves beside them danced; but they
+                        Out-did the sparkling waves in glee:
+                        A poet could not but be gay,
+                        In such a jocund company:
+                    </mr-text>
+
+                    <mr-text class="daffodil-row">
+                        <mr-entity data-position="-0.3 0 0"
+                            data-comp-animation="type: oscillate-z; amplitude: 1; ampoffset: 0; maxspeed: -0.2; acceleration: -0.8;">
+                            <mr-model class="daffodil2" src="./assets/daffodil_flower.glb"></mr-model>
+                        </mr-entity>
+
+                        <mr-entity data-position="0 0 0"
+                            data-comp-animation="type: oscillate-z; amplitude: 1; ampoffset: 0.5; maxspeed: -0.2; acceleration: -0.008;">
+                            <mr-model class="daffodil3" src="./assets/daffodil_flower.glb"></mr-model>
+                        </mr-entity>
+
+                        <mr-entity data-position="0.3 0 0"
+                            data-comp-animation="type: oscillate-z; amplitude: 1; ampoffset: 0.25; maxspeed: -0.2; acceleration: -0.08;">
+                            <mr-model class="daffodil3" src="./assets/daffodil_flower.glb"></mr-model>
+                        </mr-entity>
+                    </mr-text>
+
+                    <mr-text class="paragraph">
+                        I gazed—and gazed—but little thought
+                        What wealth the show to me had brought:
+                        For oft, when on my couch I lie
+                        In vacant or in pensive mood,
+                    </mr-text>
+
+                    <mr-text class="paragraph">
+                        They flash upon that inward eye
+                        Which is the bliss of solitude;
+                        And then my heart with pleasure fills,
+                        And dances with the daffodils.
+                    </mr-text>
+
+                    <mr-img class="img-heart" src="./images/redheart.jpg"></mr-img>
+
+                </mr-column>
+
+            </mr-container>
+
+            <mr-container class="toolbar" data-position="0 0.5 0.1">
+                <mr-text id="debug">0</mr-text>
+            </mr-container>
+
+            <mr-light color="white" intensity="1" data-position="0 1 0.5"></mr-light>
+
+        </mr-surface>
+
+        <mr-sky id="sky0" data-texture="./skybox/black.jpg"></mr-sky>
+        <mr-sky id="sky1" data-texture="./skybox/skydome01.jpg"></mr-sky>
+        <mr-sky id="sky2" data-texture="./skybox/skydome02.jpg"></mr-sky>
+        <mr-sky id="sky3" data-texture="./skybox/skybox2.jpg"></mr-sky>
+
+        <mr-light color="white" intensity="1" data-position="0 0 1"></mr-light>
+
+        <mr-model id="island" data-position="0 -5 -3" src="./assets/daffodils_island.glb" data-rotation="0 -90 0">
+            <mr-light color="white" intensity="3" data-position="2 2 2"></mr-light>
+        </mr-model>
+
+    </mr-app>
+</body>
+
+<script type="module">
+    class Sky extends Entity {
+        constructor() {
+            super();
+            this.geometry = new THREE.SphereGeometry(16, 32, 16);
+
+            const textureLoader = new THREE.TextureLoader();
+            this.texture = textureLoader.load(this.dataset.texture);
+            this.material = new THREE.MeshBasicMaterial({
+                color: 0xdddddd,
+                opacity: 0,
+                side: 1,
+                transparent: true,
+                map: this.texture,
+                needsUpdate: true
+            });
+
+            this.originOpacity = 0;
+            this.goalOpacity = 0;
+
+            this.object3D = new THREE.Mesh(this.geometry, this.material);
+            this.object3D.rotateY(-90);
+        }
+
+        setOpacity(opacity) {
+            this.originOpacity = this.material.opacity;
+            this.goalOpacity = opacity;
+        }
+
+        opacityLoop() {
+            if (Math.abs(this.goalOpacity - this.material.opacity) > 0.02) {
+                if (this.goalOpacity > this.originOpacity) {
+                    this.material.opacity += 0.05;
+                } else {
+                    this.material.opacity -= 0.05;
+                }
+            } else {
+                this.material.opacity = this.goalOpacity;
+            }
+
+        }
+    }
+    customElements.define('mr-sky', Sky);
+
+    class FadeSystem extends System {
+        constructor() {
+            super();
+            this.skyboxes = document.querySelectorAll("mr-sky");
+
+        }
+        update(deltaTime, frame) {
+            this.skyboxes.forEach(skybox => {
+                skybox.opacityLoop()
+            });
+        }
+    }
+
+    var fade = new FadeSystem();
+</script>
+
+<script src="./scripts/AnimationSystem.js"></script>
+
+<script>
+    const skybox0 = document.querySelector("#sky0");
+    const skybox1 = document.querySelector("#sky1");
+    const skybox2 = document.querySelector("#sky2");
+    const skybox3 = document.querySelector("#sky3");
+    const container = document.querySelector("mr-container");
+    const island = document.querySelector("#island");
+    const debug = document.querySelector("#debug");
+
+    const update = (event) => {
+        const position = container.shuttle.position.y
+
+        island.object3D.position.z = 1.1 * position - 2;
+        // speed of the scroll * position - origin position
+        
+        island.object3D.rotation.y = 0.1 * position - 90;
+
+        skybox0.object3D.rotation.y = 0.25 * position + 90;
+        skybox1.object3D.rotation.y = 0.25 * position + 90;
+        skybox2.object3D.rotation.y = 0.25 * position + 90;
+        skybox3.object3D.rotation.y = 0.25 * position + 90;
+
+        if (container.shuttle.position.y < 0.025) {
+            skybox0.setOpacity(0);
+            skybox1.setOpacity(0);
+            skybox2.setOpacity(0);
+            skybox3.setOpacity(0);
+        } else if (container.shuttle.position.y < 0.05) {
+            skybox0.setOpacity(0.5);
+            skybox1.setOpacity(0);
+            skybox2.setOpacity(0);
+            skybox3.setOpacity(0);
+        } else if (container.shuttle.position.y < 0.8) {
+            skybox0.setOpacity(0.5);
+            skybox1.setOpacity(1);
+            skybox2.setOpacity(0);
+            skybox3.setOpacity(0);
+        } else if (container.shuttle.position.y < 2.3) {
+            skybox0.setOpacity(0.5);
+            skybox1.setOpacity(1);
+            skybox2.setOpacity(1);
+            skybox3.setOpacity(0);
+        } else if (container.shuttle.position.y < 10) {
+            skybox0.setOpacity(0);
+            skybox1.setOpacity(0);
+            skybox2.setOpacity(0);
+            skybox3.setOpacity(0);
+        }
+
+        debug.innerText = Math.round(container.shuttle.position.y * 100) / 100;
+    }
+
+    document.addEventListener("DOMContentLoaded", (event) => {
+        skybox0.setOpacity(0);
+        skybox1.setOpacity(0);
+        skybox2.setOpacity(0);
+        skybox3.setOpacity(0);
+
+        let textureLoader = new THREE.TextureLoader();
+        container.background.material.opacity = 0.5;
+
+        island.object3D.position.z = 20;
+        island.object3D.rotation.y = 270;
+        
+        island.object3D.position.x = -0.09;
+        island.object3D.position.y = -1;
+
+        //island.object3D.rotation.z = 10;
+
+        container.addEventListener("touch", update);
+        document.addEventListener("wheel", update);
+    });
+</script>
+
+</html>

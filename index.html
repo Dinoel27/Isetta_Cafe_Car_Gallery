@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html> 
+    <head> 
+        <meta charset="utf-8">
+        <meta name="viewport" content ="width=device-width, initial-scale=1"/>
+        <title> Isetta Cafe Vehicle Collection Gallery</title>
+
+        <script src="https://cdn.jsdelivr.net/gh/volumetrics-io/mrjs@latest/dist/mr.js"></script>
+        <style>
+            @font-face {
+                font-family: 'Neue Haas Grotesk';
+                src: url('./fonts/Neue_Haas_Grotesk_Display_Pro/NeueHaasDisplayRoman.ttf') format('truetype');
+                font-weight: 400;
+            }
+
+            * {
+                padding: 0; 
+                margin: 0; 
+                border: none; 
+                border-collapse: collapse; 
+            }
+
+            html {
+                overflow: hidden;
+                overscroll-behavior: none;
+            }
+
+            body {
+                position: fixed; 
+            }
+
+            mr-surface {
+                height: 100vh; 
+                width: 100vw; 
+            }
+
+            mr-app * {
+                display: block; 
+            }
+
+            .mainContainer {
+                background-color: white;
+                border-radius: 20px; 
+                height: 500px; 
+                width: 80vw; 
+            }
+
+            .mainColumn {
+                padding-left: 30px; 
+                padding-right: 30px; 
+            }
+
+            .title {
+                font-size: 64px;
+                line-height: 110%;
+                color: #FF5100; 
+                font-family: "Neue Haas Grotesk Display Pro";
+                font-weight: 800;
+                text-align: center; 
+                margin-top: 40px; 
+            }
+
+           .paragraph {
+            color: #333333;
+            font-size: 24px; 
+            line-height: 200%; 
+            font-family: "Neue Haas Grotesk Display Pro";
+            font-weight: 300; 
+            margin-top: 25px; 
+            margin-bottom: 15px; 
+            text-align: center; 
+           }
+
+           .paragraph-end {
+            height: 200px;
+           }
+
+           .toolbar {
+            background-color: hotpink;
+            border-radius: 1%; 
+            height: 80px; 
+            width: 150px; 
+           }
+
+           .button {
+            text-align: left; 
+           }
+
+           .img-logo {
+            height: 150px; 
+            width: 150px; 
+            width: 30vw; 
+           }
+
+           #background {
+            position: absolute; 
+            inset: 0; 
+            width: 100vw; 
+            height: 100vh; 
+            background-color: black; 
+            z-index: -1; 
+            display: block; 
+            object-fit: cover; 
+            object-position: center; 
+           }
+
+           .subtitle {
+            font-size: 32px;
+            line-height: 100%;
+            color: #36802A;
+            font-family: "Neue Haas Grotesk Display Pro";
+            font-weight: 600;
+            text-align: center;
+            margin-top: 15px; 
+           }
+
+           .car {
+            scale: 0.1; 
+            z-index: 10; 
+            height: 100px; 
+           }
+
+           .img-garage {
+            width: 600px;
+            height: 400px; 
+            background-color: white;
+           }
+
+           .img-garage-door {
+            width: 540px; 
+            height: 400px; 
+            background-color: white;
+           }
+
+           .img-collection {
+            width: 560px; 
+            height: 430px;
+            margin-top: 20px;
+           }
+
+        </style>
+
+    </head>
+
+<body>
+<mr-app debug="false" camera="camera:perspective">
+    <mr-surface fixed="true">
+        <mr-container class="mainContainer">
+            <mr-column class="mainColumn">
+                <mr-text class="title"> Isetta Car Gallery</mr-text>
+                <mr-text class="subtitle"> Cars & Coffee</mr-text>
+                
+                <mr-text class="paragraph"> We present to you a digital collection of vehicles owned by Isetta founder and a happy car enthusiast.
+                    Carefully collected over a span of 40 years, the collection is truly one of its kind. 
+                    Empowered by recent technological advancements in volumetric visual reproduction of real life objects,
+                    the team introduces a virtual sneak peek into a neighboring garage full of vehicles from 1950s to 1990s.
+                </mr-text>
+
+                <mr-img class="img-collection" src="./images/car_test.jpg"></mr-img>
+                <mr-entity data-position="0 0 0.05" data-rotation="0 0 0"
+                data-comp-animation="type: rotate-y; maxspeed: -0.02; acceleration: -0.00008;">
+            </mr-entity>
+
+            <mr-light color="white" intensity="1" data-position="0 0.5 2"></mr-light>
+
+            <!-- <mr-img class="img-garage" src="./images/garage_base.png"> </mr-img>
+            <mr-img class="img-garage-door" src="./images/garage_door.png"> </mr-img> -->
+            
+
+
+            </mr-column>
+        </mr-container>
+    </mr-surface>
+</mr-app>
+
+</body>
+
+
+</html>
